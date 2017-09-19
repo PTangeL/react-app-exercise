@@ -1,5 +1,8 @@
 import React, {Component} from 'react'
+import withWidth from 'material-ui/utils/withWidth'
+
 import WorkshopList from './WorkshopList'
+import { fetchWorkshops } from '../../api/workshop'
 
 class WorkshopListContainer extends Component {
   constructor() {
@@ -10,11 +13,7 @@ class WorkshopListContainer extends Component {
   }
 
   componentDidMount() {
-    fetch('/data/workshops.js', {
-      method: 'get'
-    }).then((response) => {
-      return response.json()
-    }).then((data) => {
+    fetchWorkshops().then((data) => {
       this.setState({ workshops: data })
     }).catch((err)=> {
       console.log(err)
@@ -25,9 +24,11 @@ class WorkshopListContainer extends Component {
     return (
       <WorkshopList
         workshops={this.state.workshops}
+        match={this.props.match}
+        history={this.props.history}
       />
     )
   }
 }
 
-export default WorkshopListContainer
+export default withWidth()(WorkshopListContainer)

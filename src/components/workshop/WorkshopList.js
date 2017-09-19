@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { ListItem } from 'material-ui/List'
 import ActionGrade from 'material-ui/svg-icons/action/grade'
 import { pinkA200 } from 'material-ui/styles/colors'
-import withWidth, { LARGE } from 'material-ui/utils/withWidth'
+import { LARGE } from 'material-ui/utils/withWidth'
 import { Route, Switch, withRouter } from 'react-router-dom'
 
 import View from '../layout/View'
@@ -14,17 +14,23 @@ const WorkshopList = ({ workshops = [], match, history, width}) => {
     history.push(`/workshops/${workshop.id}`)
   }
 
-  const listItems = (
-    <View>
-      { workshops.map(workshop => (
-        <ListItem
-          onClick={() => { showWorkshop(workshop) }} key={workshop.id} style={{color: "black"}}
-          primaryText={ `${workshop.title}`}
-          leftIcon={<ActionGrade color={pinkA200} />}
-        />
-      ))}
-    </View>
-  )
+  let listItems
+
+  if (workshops.length === 0) {
+    listItems = <View>Loading...</View>
+  } else {
+    listItems = (
+      <View>
+        { workshops.map(workshop => (
+          <ListItem
+            onClick={() => { showWorkshop(workshop) }} key={workshop.id} style={{color: "black"}}
+            primaryText={ `${workshop.title}`}
+            leftIcon={<ActionGrade color={pinkA200} />}
+          />
+        ))}
+      </View>
+    )
+  }
 
   return (
     <View style={{ display: 'flex' }}>
@@ -41,7 +47,7 @@ const WorkshopList = ({ workshops = [], match, history, width}) => {
   )
 }
 
-export default withWidth()(withRouter(WorkshopList))
+export default WorkshopList
 
 
 WorkshopList.propTypes = {

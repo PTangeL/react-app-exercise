@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import UserProfile from './UserProfile'
+import { fetchUser } from '../../api/user'
 
 class UserProfileContainer extends Component {
   constructor() {
@@ -19,11 +20,7 @@ class UserProfileContainer extends Component {
   }
 
   fetchUser = (username) => {
-    fetch(`/data/users/${username}.json`, {
-        method: 'get'
-    }).then((response) => {
-        return response.json()
-    }).then((data) => {
+    fetchUser(username).then((data) => {
         this.setState({user : data})
     }).catch((err)=> {
         console.log(err)
