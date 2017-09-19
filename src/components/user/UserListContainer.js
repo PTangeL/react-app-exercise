@@ -13,7 +13,7 @@ class UserListContainer extends Component {
 
   render() {
     return (
-      //you need to render the children
+      //you need to render the UserList component and pass the users
     )
   }
 }

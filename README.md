@@ -16,7 +16,7 @@ Clone [this repository](https://github.com/leanjscom/react-app) and run `npm sta
 
 `git clone https://github.com/leanjscom/react-app-exercise && cd react-app-exercise && yarn install`
 
-Now you can run your application by running: `npm start`
+Now you can run your application by running: `yarn start`
 
 ## Exercise
 
@@ -36,7 +36,7 @@ Now you can run your application by running: `npm start`
 
 7. Finish the implementation of the Login Component (located in src/components/Login.js). Requirements:
     1. The state of the inputs should be managed by the Login component (is that a controlled or uncontrolled component?). Hint: use the onChange event in the inputs
-    2. Handle the onClick button to validate the inputs. For validation you can use password: 1234 and username: reactfanboy
+    2. Handle the onClick button to validate the inputs. For validation you can use password: 1234 and email: reactfanboy@facebook.com
     3. If the validation is correct redirect the user to the home page. Hint: you need the router. To inject the router use withRouter from 'react-router-dom'.
 
 8. Make all components where possible stateless components (components as functions instead of classes). Components should be stateless components if either i) they don't manage state or ii) they don't use a livecycle method. Further reading (https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0#.oy1l2u2ew)
