@@ -2,6 +2,11 @@ import React, {Component} from 'react'
 import {FormGroup, FormControl, Button} from 'react-bootstrap'
 
 class Login extends Component {
+  constructor() {
+    super()
+    //Here you'll need to set up the state of the component
+  }
+
   handleSubmit = (e) => {
     e.preventDefault()
     // Hint: In order for this to work you'll need to use the withRouter HOC:
@@ -13,6 +18,12 @@ class Login extends Component {
     }
   }
 
+  handleChange = (name, event) => {
+      let change = {}
+      change[name] = event.target.value
+      //You need to set the change object in the state of the component
+    }
+
   render () {
     return (
       <form className="form-signin">
@@ -21,7 +32,7 @@ class Login extends Component {
         </FormGroup>
 
         <FormGroup>
-          <FormControl className="form-control" id="email" type="email" value="" placeholder="Enter email" />
+          <FormControl onChange={(event) => this.handleChange('email', event)} className="form-control" id="email" type="email" value="" placeholder="Enter email" />
           <FormControl className="form-control" id="password" type="password" value="" placeholder="Password" />
         </FormGroup>
 
