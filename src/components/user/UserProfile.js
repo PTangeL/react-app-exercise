@@ -18,6 +18,7 @@ class UserProfile extends Component {
   }
 
   fetchUser = (username) => {
+    this.setState({user : null})
     // This setTimeout is just to simulate the latency of a slow network
     setTimeout(() => {
       fetch(`/data/users/${username}.json`, {
@@ -43,7 +44,7 @@ class UserProfile extends Component {
       this.fetchUser(this.props.match.params.username)
     }
 
-    if (!user || needsToFetchUser) {
+    if (!user) {
       return <View>Loading...</View>
     }
 
