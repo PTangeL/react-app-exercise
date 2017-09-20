@@ -8,7 +8,7 @@ class Login extends Component {
     // https://reacttraining.com/react-router/web/api/withRouter
     const { history } = this.props
 
-    if (this.state.username === 'reactboy' && this.state.password === '1234') {
+    if (this.state.username === 'react' && this.state.password === '1234') {
       history.push('/')
     }
   }
